@@ -179,11 +179,25 @@ Table notifications {
   created_at TIMESTAMP
 }
 
-Table refresh_tokens {
+Table driver_refresh_tokens {
   id UUID [pk]
 
   account_id UUID
-  account_type account_type
+
+  token TEXT
+
+  device_info TEXT
+  ip_address VARCHAR(50)
+
+  expires_at TIMESTAMP
+  is_revoked BOOLEAN [default: false]
+
+  created_at TIMESTAMP
+}
+Table user_refresh_tokens {
+  id UUID [pk]
+
+  account_id UUID
 
   token TEXT
 
@@ -219,3 +233,7 @@ Ref: live_locations.driver_id > drivers.id
 Ref: notifications.user_id > users.id
 
 Ref: notifications.driver_id > drivers.id
+
+Ref: user_refresh_tokens.account_id > users.id
+
+Ref: driver_refresh_tokens.account_id > drivers.id
