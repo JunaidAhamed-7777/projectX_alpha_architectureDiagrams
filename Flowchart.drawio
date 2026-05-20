@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net">
   <diagram name="Page-1" id="hPXhX3584OFWKO7sLei4">
-    <mxGraphModel dx="3070" dy="1775" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
+    <mxGraphModel dx="2456" dy="1500" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -734,6 +734,51 @@
         </mxCell>
         <mxCell id="bPK1on8vEH_ifo9Aey_2-237" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Driver Logged in with Partial access (Can see Driver profile details but cannot see currently active requests)" vertex="1">
           <mxGeometry height="116" width="230" x="1816" y="1303" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-9" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="htdaz4zRGGFxPvx1Lejc-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="User Opens App" vertex="1">
+          <mxGeometry height="80" width="120" x="1467" y="717" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-10" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="htdaz4zRGGFxPvx1Lejc-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="POST/auth/refresh-token" vertex="1">
+          <mxGeometry height="80" width="120" x="1621.5" y="717" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-11" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="htdaz4zRGGFxPvx1Lejc-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-4" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;" value="1. Token exists?&lt;br&gt;2. is_revoked = false?&lt;br&gt;3. expires_at &amp;gt; NOW()?&lt;br&gt;4. account_id exists?&lt;div&gt;&lt;br/&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="94" width="156" x="1781" y="710" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-12" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="htdaz4zRGGFxPvx1Lejc-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Backend:&amp;nbsp;&lt;div&gt;401 UNAUTHORIZED&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="141" x="1781" y="831" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Redirected to Login/SIgnup screen" vertex="1">
+          <mxGeometry height="80" width="120" x="1791.5" y="911" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="User/Driver provided access to app&amp;nbsp;" vertex="1">
+          <mxGeometry height="80" width="120" x="2117" y="707" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-16" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="htdaz4zRGGFxPvx1Lejc-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="account_id is matched" vertex="1">
+          <mxGeometry height="60" width="120" x="1967" y="719" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-13" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.643;entryDx=0;entryDy=0;entryPerimeter=0;" target="htdaz4zRGGFxPvx1Lejc-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Any = FALSE" vertex="1">
+          <mxGeometry height="30" width="74" x="1771" y="801" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-18" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="All = TRUE" vertex="1">
+          <mxGeometry height="30" width="75" x="1971" y="687" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
