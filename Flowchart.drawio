@@ -877,6 +877,41 @@
         <mxCell id="htdaz4zRGGFxPvx1Lejc-53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Refresh every 1 second" vertex="1">
           <mxGeometry height="60" width="120" x="3092" y="940.5" as="geometry" />
         </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-62" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="htdaz4zRGGFxPvx1Lejc-57">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-56" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Driver clocks out" vertex="1">
+          <mxGeometry height="80" width="120" x="2523" y="581" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-66" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-57" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="htdaz4zRGGFxPvx1Lejc-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-57" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="if ambulance assignment exists, then is_active = FALSE and set unassigned_at=NOW()" vertex="1">
+          <mxGeometry height="91" width="154" x="2689" y="575.5" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-67" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-58" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="htdaz4zRGGFxPvx1Lejc-59">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-58" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="drivers.is_online = FALSE" vertex="1">
+          <mxGeometry height="46" width="152" x="2889" y="598" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-59" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Ambulance available as &quot;AVAILABLE&quot; in ambulance list" vertex="1">
+          <mxGeometry height="80" width="120" x="3083" y="575.5" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-63" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-60" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="htdaz4zRGGFxPvx1Lejc-61">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-60" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Driver closes app" vertex="1">
+          <mxGeometry height="80" width="120" x="2523" y="721" as="geometry" />
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-65" edge="1" parent="1" source="htdaz4zRGGFxPvx1Lejc-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2755.272727272727" y="668.3637223677201" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="htdaz4zRGGFxPvx1Lejc-61" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="30 second timeout" vertex="1">
+          <mxGeometry height="60" width="120" x="2695" y="731" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
