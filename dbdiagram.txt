@@ -1,0 +1,221 @@
+Enum booking_status {
+  PENDING
+  SEARCHING_DRIVER
+  DRIVER_ASSIGNED
+  DRIVER_ACCEPTED
+  REACHING_PATIENT
+  PATIENT_PICKED
+  EN_ROUTE_HOSPITAL
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
+
+Enum verification_status {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+Enum account_type {
+  USER
+  DRIVER
+}
+
+Table users {
+  id UUID [pk]
+
+  phone_number VARCHAR(15) [unique]
+  full_name VARCHAR(100)
+  email VARCHAR(100)
+  gender VARCHAR(10)
+  profile_image TEXT
+
+  role VARCHAR(10) [default: 'USER']
+
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+}
+
+Table drivers {
+  id UUID [pk]
+
+  phone_number VARCHAR(15) [unique]
+  full_name VARCHAR(100)
+
+  aadhaar_number VARCHAR(20) [unique]
+  license_number VARCHAR(50) [unique]
+
+  is_verified verification_status [default: 'PENDING']
+  is_online BOOLEAN [default: false]
+
+  latitude DECIMAL(10,8)
+  longitude DECIMAL(11,8)
+
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+}
+
+Table driver_documents {
+  id UUID [pk]
+
+  driver_id UUID
+
+  license_image_url TEXT
+  rc_image_url TEXT
+  aadhaar_image_url TEXT
+
+  verification_status verification_status [default: 'PENDING']
+
+  uploaded_at TIMESTAMP
+}
+
+Table hospitals {
+  id UUID [pk]
+
+  name VARCHAR(100)
+  address TEXT
+
+  latitude DECIMAL(10,8)
+  longitude DECIMAL(11,8)
+
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+}
+
+Table ambulances {
+  id UUID [pk]
+
+  hospital_id UUID
+
+  vehicle_number VARCHAR(20) [unique]
+  ambulance_type VARCHAR(50)
+  registration_number VARCHAR(50) [unique]
+
+  is_available BOOLEAN [default: true]
+
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+}
+
+Table driver_ambulance_assignments {
+  id UUID [pk]
+
+  driver_id UUID
+  ambulance_id UUID
+
+  assigned_at TIMESTAMP
+  unassigned_at TIMESTAMP
+
+  is_active BOOLEAN [default: true]
+}
+
+Table bookings {
+  id UUID [pk]
+
+  user_id UUID
+  driver_id UUID
+  ambulance_id UUID
+
+  pickup_lat DECIMAL(10,8)
+  pickup_lng DECIMAL(11,8)
+  pickup_address TEXT
+
+  destination_lat DECIMAL(10,8)
+  destination_lng DECIMAL(11,8)
+  destination_address TEXT
+
+  is_emergency BOOLEAN [default: false]
+
+  booking_status booking_status [default: 'PENDING']
+
+  estimated_eta INTEGER
+  cancelled_reason TEXT
+
+  created_at TIMESTAMP
+  updated_at TIMESTAMP
+}
+
+Table booking_status_logs {
+  id UUID [pk]
+
+  booking_id UUID
+
+  old_status booking_status
+  new_status booking_status
+
+  changed_by VARCHAR(20) [note: 'USER/DRIVER/SYSTEM']
+
+  created_at TIMESTAMP
+}
+
+Table live_locations {
+  id UUID [pk]
+
+  booking_id UUID
+  driver_id UUID
+
+  latitude DECIMAL(10,8)
+  longitude DECIMAL(11,8)
+
+  heading DECIMAL(5,2)
+  speed DECIMAL(5,2)
+
+  updated_at TIMESTAMP
+}
+
+Table notifications {
+  id UUID [pk]
+
+  user_id UUID
+  driver_id UUID
+
+  title VARCHAR(150)
+  message TEXT
+  type VARCHAR(50)
+
+  is_read BOOLEAN [default: false]
+
+  created_at TIMESTAMP
+}
+
+Table refresh_tokens {
+  id UUID [pk]
+
+  account_id UUID
+  account_type account_type
+
+  token TEXT
+
+  device_info TEXT
+  ip_address VARCHAR(50)
+
+  expires_at TIMESTAMP
+  is_revoked BOOLEAN [default: false]
+
+  created_at TIMESTAMP
+}
+
+Ref: driver_documents.driver_id > drivers.id
+
+Ref: ambulances.hospital_id > hospitals.id
+
+Ref: driver_ambulance_assignments.driver_id > drivers.id
+
+Ref: driver_ambulance_assignments.ambulance_id > ambulances.id
+
+Ref: bookings.user_id > users.id
+
+Ref: bookings.driver_id > drivers.id
+
+Ref: bookings.ambulance_id > ambulances.id
+
+Ref: booking_status_logs.booking_id > bookings.id
+
+Ref: live_locations.booking_id > bookings.id
+
+Ref: live_locations.driver_id > drivers.id
+
+Ref: notifications.user_id > users.id
+
+Ref: notifications.driver_id > drivers.id
